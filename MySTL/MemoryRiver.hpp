@@ -91,8 +91,6 @@ public:
          file.seekp(0, std::ios::end);
          unsigned long position = static_cast<unsigned long>(file.tellp());
          int index = (position - info_len * sizeof(int)) / sizeofT;
-         // std::cout << file.tellp() << std::endl;
-         // std::cout << file.tellp() - info_len * sizeof(int) << ' ' << std::endl;
          file.write(reinterpret_cast<char *>(&t), sizeofT);
          file.close();
          return index;

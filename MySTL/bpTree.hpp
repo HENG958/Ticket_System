@@ -1,17 +1,14 @@
 #ifndef BPTREE_HPP
 #define BPTREE_HPP
-#define debug(x) cout << #x << ':' << (x) << endl;
 #include "MemoryRiver.hpp"
 #include <vector>
-//#include <assert.h>
 #include <iostream>
 #include <unordered_map>
 using namespace std;
-
 template<
    class Key,
    class Value,
-   int M = 70, int L = 70,
+   int M = 100, int L = 100,
    class Hash = std::hash<Key>,
    class Equal = std::equal_to<Key>
 >
@@ -22,10 +19,8 @@ private:
    class Bptree_leaf_node;
    class Bptree_normal_node;
    Bptree_normal_node root_node;
-   MemoryRiver<Bptree_leaf_node, 0> leaf_node_manager;     // info：leaf_node个数
-   MemoryRiver<Bptree_normal_node, 3> normal_node_manager; // info：root的编号，normal_node个数，bptree中元素个数
-
-   //Cache
+   MemoryRiver<Bptree_leaf_node, 0> leaf_node_manager;
+   MemoryRiver<Bptree_normal_node, 3> normal_node_manager;
    int CacheLimit;
    std::unordered_map<Key, Value, Hash, Equal> Cache;
    void Cache_Limit() {
@@ -168,7 +163,6 @@ public:
       return _size;
    }
    bool find(const Key &key, Value &result) {
-      //Cache
       if (CacheFind(key, result))return true;
       if (dfs_find(root, 0, key, result) != -1) {
          CacheInsert(key, result);
@@ -543,7 +537,6 @@ private:
          return found;
       }
    }
-   //在叶节点删除某个值后，在node1和node2之间调整使他们满足Bptree对size的要求，返回是否进行了merge操作
    bool IfSize_leaf(int rank,
                                     Bptree_leaf_node &node1,
                                     Bptree_leaf_node &node2,

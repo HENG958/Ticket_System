@@ -1,12 +1,8 @@
 #ifndef SJTU_EXCEPTIONS_HPP
 #define SJTU_EXCEPTIONS_HPP
-
-//#include <cstddef>
 #include <cstring>
 #include <string>
-
 namespace sjtu {
-
 class exception {
 protected:
 	const std::string variant = "";
