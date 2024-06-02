@@ -12,7 +12,6 @@ namespace ticketsys
       return;
     int low = l, high = r;
     T key = A[low + rand() % (high - low + 1)];
-    // T pivot = A[low];
     while (low <= high)
     {
       while (A[high] > key)
@@ -82,4 +81,4 @@ namespace ticketsys
 
 }
 
-#endif // COMMAND_PARSER_HPP_TOOLS_ALGORITHM_HPP_
+#endif 

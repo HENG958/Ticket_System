@@ -1,23 +1,16 @@
 #ifndef TRAIN_HPP
 #define TRAIN_HPP
-
 #include "char.hpp"
 #include "MySTL/bpTree.hpp"
-//#include "ACMstl/UnorderedMap.hpp"
-//#include "ACMstl/Map.hpp"
-//#include "ACMstl/Vector.hpp"
 #include "define.hpp"
 #include "algorithm.hpp"
 #include "time.hpp"
 #include "order.hpp"
 #include "error.hpp"
-//#include <utility>
 #include <vector>
 #include <map>
 #include <unordered_map>
-
 using ticketsys::ull;
-
 struct Train
 {
   ticketsys::trainIDType trainID;

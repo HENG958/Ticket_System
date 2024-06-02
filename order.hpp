@@ -3,11 +3,9 @@
 #include "define.hpp"
 #include "time.hpp"
 #include "MySTL/bpTree.hpp"
-//#include "ACMstl/Vector.hpp"
 #include "algorithm.hpp"
 #include "error.hpp"
 #include <iostream>
-//#include <map>
 #include <vector>
 using ticketsys::ull;
 struct Order
@@ -72,8 +70,8 @@ class OrderManager
     }
   };
 
-  Bptree<std::pair<ull, int>, Order, 339, 38, ticketsys::pair_hash> orderDataBase;       
-  Bptree<std::pair<std::pair<int, ull>, int>, PendingOrder, 254, 144, ticketsys::pair_pair_hash_nd> pendingQueue; 
+  Bptree<std::pair<ull, int>, Order, 350, 40, ticketsys::pair_hash> orderDataBase;       
+  Bptree<std::pair<std::pair<int, ull>, int>, PendingOrder, 250, 150, ticketsys::pair_pair_hash_nd> pendingQueue; 
   std::hash<std::string> hash_str;
 
 public:

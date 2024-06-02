@@ -1,8 +1,6 @@
-#ifndef TRAIN_MANAGER_CPP__MYDEFS_HPP_
-#define TRAIN_MANAGER_CPP__MYDEFS_HPP_
-
+#ifndef DEFINE_HPP_
+#define DEFINE_HPP_
 #include "char.hpp"
-
 namespace ticketsys
 {
     using ull = unsigned long long;

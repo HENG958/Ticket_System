@@ -249,15 +249,12 @@ void TrainManager::QueryTicket(std::string *info,
   stationDataBase.range_search(std::make_pair(terminal_hash, std::make_pair(0, 0)),
                                std::make_pair(terminal_hash, std::make_pair(wanted_date + 1, 0)),
                                result_terminal);
-  // std::linked_hashmap<ull, int> find_same;
-
   bool if_time = true;
   if (!info[ticketsys::_p].empty() && info[ticketsys::_p] == "cost")
     if_time = false;
 
   std::vector<std::pair<std::pair<int, ticketsys::trainIDType>, std::pair<int, int>>> possible_ans;
 
-  // std::vector<int> find_same;
   for (int i = 0, j = 0; i < result_start.size() && j < result_terminal.size(); ++i)
   {
     while (j < result_terminal.size() && result_start[i].first.second > result_terminal[j].first.second)
