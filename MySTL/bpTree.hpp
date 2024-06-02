@@ -8,7 +8,7 @@ using namespace std;
 template<
    class Key,
    class Value,
-   int M = 1000, int L = 1000,
+   int M = 100, int L = 100,
    class Hash = std::hash<Key>,
    class Equal = std::equal_to<Key>
 >
