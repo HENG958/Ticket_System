@@ -14,6 +14,6 @@ int main()
   while (true)
   {
     command_parser.Run();
-    std::cout << "__end_of_output__" << std::endl;
+    //std::cout << "__end_of_output__" << std::endl;
   }
 }

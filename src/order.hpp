@@ -4,7 +4,7 @@
 #include "time.hpp"
 #include "MySTL/bpTree.hpp"
 //#include "ACMstl/Vector.hpp"
-//#include "tools/Algorithm.hpp"
+#include "algorithm.hpp"
 #include "error.hpp"
 #include <iostream>
 //#include <map>
@@ -72,33 +72,8 @@ class OrderManager
     }
   };
 
-  struct pair_hash
-  {
-    template <class T1, class T2>
-    std::size_t operator()(const std::pair<T1, T2> &p) const
-    {
-      return hash_val(p.first, p.second);
-    }
-  };
-
-  struct pair_pair_hash
-  {
-    template <class T1, class T2, class T3>
-    std::size_t operator()(const std::pair<T1, std::pair<T2, T3>> &p) const
-    {
-      return hash_val(p.first, p.second.first, p.second.second);
-    }
-  };
-  struct pair_pair_hash_nd
-  {
-    template <class T1, class T2, class T3>
-    std::size_t operator()(const std::pair<std::pair<T1, T2>, T3> &p) const
-    {
-      return hash_val(p.first.first, p.first.second, p.second);
-    }
-  };
-  Bptree<std::pair<ull, int>, Order, 339, 38, pair_hash> orderDataBase;       
-  Bptree<std::pair<std::pair<int, ull>, int>, PendingOrder, 254, 144, pair_pair_hash_nd> pendingQueue; 
+  Bptree<std::pair<ull, int>, Order, 339, 38, ticketsys::pair_hash> orderDataBase;       
+  Bptree<std::pair<std::pair<int, ull>, int>, PendingOrder, 254, 144, ticketsys::pair_pair_hash_nd> pendingQueue; 
   std::hash<std::string> hash_str;
 
 public:

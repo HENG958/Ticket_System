@@ -40,7 +40,7 @@ public:
 class UserManager
 {
 private:
-  Bptree<unsigned long long, User, 339, 67> userDatabase; 
+  Bptree<unsigned long long, User, 350, 100> userDatabase; 
   std::unordered_map<unsigned long long, int> onlineUser;
   std::hash<std::string> hash_str;
 public:

@@ -7,7 +7,7 @@
 //#include "ACMstl/Map.hpp"
 //#include "ACMstl/Vector.hpp"
 #include "define.hpp"
-//#include "tools/Algorithm.hpp"
+#include "algorithm.hpp"
 #include "time.hpp"
 #include "order.hpp"
 #include "error.hpp"
@@ -130,30 +130,13 @@ private:
       return ticket1.cost + ticket2.cost;
     }
   };
-  struct pair_hash
-  {
-    template <class T1, class T2>
-    std::size_t operator()(const std::pair<T1, T2> &p) const
-    {
-      return hash_val(p.first, p.second);
-    }
-  };
-
-  struct pair_pair_hash
-  {
-    template <class T1, class T2, class T3>
-    std::size_t operator()(const std::pair<T1, std::pair<T2, T3>> &p) const
-    {
-      return hash_val(p.first, p.second.first, p.second.second);
-    }
-  };
 
   Bptree<ull, Train, 338, 3> trainDataBase;
   unordered_map<ull, BasicTrain> basicTrainDatabase;
-  Bptree<ull, BasicTrain, 338, 65> basicTrainBackUp; //
-  Bptree<std::pair<ticketsys::Day, ull>, DayTrain, 339, 18, pair_hash>
+  Bptree<ull, BasicTrain, 338, 65> basicTrainBackUp; 
+  Bptree<std::pair<ticketsys::Day, ull>, DayTrain, 339, 18, ticketsys::pair_hash>
       DayTrainToSeat; 
-  Bptree<std::pair<ull, std::pair<int, ull>>, TrainStation, 339, 101, pair_pair_hash>
+  Bptree<std::pair<ull, std::pair<int, ull>>, TrainStation, 339, 101, ticketsys::pair_pair_hash>
       stationDataBase;
   std::hash<std::string> hash_str;
 

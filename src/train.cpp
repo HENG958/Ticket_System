@@ -1,6 +1,6 @@
 #include "train.hpp"
 #include "time.hpp"
-#include "sort.hpp"
+#include "algorithm.hpp"
 #include <vector>
 #include <unordered_map>
 Train::Train(const std::string &trainID_, std::vector<std::string> &stations_, std::vector<int> &sumPrice_, std::vector<int> &arrivaltimes_, std::vector<int> &leavingtimes_)
