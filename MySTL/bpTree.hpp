@@ -1,7 +1,7 @@
 #ifndef BPTREE_HPP
 #define BPTREE_HPP
 #define debug(x) cout << #x << ':' << (x) << endl;
-#include "memoryriver.hpp"
+#include "Memoryriver.hpp"
 #include <vector>
 //#include <assert.h>
 #include <iostream>
